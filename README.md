@@ -19,7 +19,7 @@ Using https://ocodo.github.io/ClockFace-font in Emacs
          (offset (+ (* (% hours 12) 12) (* 12 (/ minute 60)))))
        (+ offset #xE800)))
 
-(defun clockface-icons-unicode ()
+(defun clockface-icons-now-unicode ()
   "Return clock icon unicode for the time now."
   (cl-destructuring-bind
       (_ _ hour minute &rest n) (decode-time)
