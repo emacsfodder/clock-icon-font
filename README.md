@@ -1,4 +1,4 @@
-![]
+![](https://github.com/ocodo/ClockFace-font/raw/master/ClockFace-font-splash.png)
 
 # Clockicon
 
