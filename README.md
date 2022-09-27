@@ -11,11 +11,7 @@ Using https://ocodo.github.io/ClockFace-font in Emacs
 - [ ] Provide a function to generate a propertized/overlay of time as icon
 
 ```lisp
-(defun clockicon-now-unicode ()
-  "Return clock icon unicode for the time now."
-  (destructuring-bind
-      (_ _ hour minute &rest n) (decode-time)
-    (clockicon-unicode hour minute)))
+(require 'cl-lib)
 
 (defun clockicon-unicode (hours minutes)
   "Return clock icon unicode for HOURS and MINUTES."
@@ -23,6 +19,12 @@ Using https://ocodo.github.io/ClockFace-font in Emacs
          (offset (+ (* (% hours 12) 12) (* 12 (/ minute 60)))))
        (+ offset #xE800)))
 
+(defun clockicon-now-unicode ()
+  "Return clock icon unicode for the time now."
+  (cl-destructuring-bind
+      (_ _ hour minute &rest n) (decode-time)
+    (clockicon-unicode hour minute)))
+    
 (defface clock-icons '((t (:family ClockFace))) "ClockFace icons")
 (defface clock-icons-solid '((t (:family ClockFaceSolid))) "ClockFaceSolid icons")
 (defface clock-icons-rect '((t (:family ClockFaceRect))) "ClockFaceRect icons")
